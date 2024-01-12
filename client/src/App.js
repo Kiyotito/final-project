@@ -10,9 +10,7 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className="App">
-      <h1>Content</h1>
-    </div>
+  <div>test</div>
   );
 }
 
