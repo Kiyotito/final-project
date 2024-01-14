@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import Layout from "./Layout";
 import { Routes, Route } from "react-router-dom";
-import Header from "./Header";
-import Entry from "./Entry";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
+import Profile from "./pages/Profile";
 
 function App() {
   useEffect(() => {
@@ -23,18 +21,11 @@ function App() {
           <Route index element ={<IndexPage/>}/>
           <Route path ='/login'element ={<LoginPage/>}/>
           <Route path ='/register'element ={<div>Register Page</div>}/>
+          <Route path ='/Profile'element ={<Profile/>}/>
         </Route>
       </Routes>
     
   );
 }
-
-const Main = styled.main`
-  padding: 10px;
-  max-width: 700px;
-  margin: 0 auto;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-`;
 
 export default App;

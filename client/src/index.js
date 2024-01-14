@@ -1,27 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { ThemeProvider, createTheme } from '@mui/material';
-import { BrowserRouter} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
 
-const theme = createTheme({
-palette: {
-    primary: {
-        main: '#FF6241'
-    },
-    secondary: {
-        main:'#FFC145'
-    }
-}
-})
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <ThemeProvider theme={theme}>
+  <Auth0Provider
+    domain="dev-z4wjuod7ik0d1mz1.us.auth0.com"
+    clientId="5HYuBidMl26xTwEbrYEIAVxEnJsRGJfA"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
-    </ThemeProvider>
+  </Auth0Provider>
 );
-
