@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <HeaderStyling>
       <BlogName href="" className="logo">
-        My Blog
+        Ratios
       </BlogName>
       <Nav>
         <Links to="/login">Login</Links>

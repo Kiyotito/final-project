@@ -4,14 +4,14 @@ const Entry = () => {
 
     return(
         <Post>
-        <Img src="https://styles.redditmedia.com/t5_95mk3f/styles/communityIcon_fb78be7pwqjb1.png" alt=""/>
+        <Img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""/>
         <Text>
-        <Title>Sailor Moon Is The Greatest Hero</Title>
+        <Title>Old Fashioned</Title>
         <Info>
         <Author>Koichi Sato</Author>
         <Time>January 11th 2023</Time>
         </Info>
-        <p>The series follows the adventures of the titular protagonist whose name is Usagi Tsukino, a middle school student who is given the power to become a Pretty Soldier. Joined by other Sailor Soldiers, she defends Earth against an assortment of evil villains. The anime also parallels the maturation of Usagi from an emotional middle school girl to a responsible young adult.</p>
+        <p>The old fashioned is a cocktail made by muddling sugar with bitters and water, adding whiskey, and garnishing with an orange slice or zest and a cocktail cherry. It is traditionally served with ice in an old fashioned glass.</p>
         </Text>
         </Post>  
     )
@@ -60,7 +60,7 @@ const Text = styled.div`
 
 const Title = styled.h2`
  font-size: 2rem;
- margin: 10px 0px;
+ margin-bottom: 10px;
 `;
 
 export default Entry;
