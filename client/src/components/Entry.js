@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Entry = ({title,summary,imgURL}) => {
+const Entry = ({title,summary,imgURL,_id}) => {
 
     return(
         <Post>
-        <Img src="http://tinyurl.com/mpevvp49" alt=""/>
+        <Links to ={`/post/${_id}`}><Img src="http://tinyurl.com/mpevvp49" alt=""/></Links>
         <Text>
-        <Title>{title}</Title>
+        <Links to ={`/post/${_id}`}><Title>{title}</Title></Links>
         <Info>
         <Author>Koichi Sato</Author>
         <Time>January 11th 2023</Time>
@@ -55,4 +56,8 @@ const Title = styled.h2`
  margin-bottom: 10px;
 `;
 
+const Links = styled(Link)`
+text-decoration: none;
+color: inherit;
+`
 export default Entry;
