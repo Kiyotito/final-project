@@ -1,25 +1,23 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   return (
     <HeaderStyling>
-      <BlogName href="" className="logo">
+      <HomeLink to="/">
         Ratios
-      </BlogName>
+      </HomeLink>
       <Nav>
-        <Links to="/login">Login</Links>
+        <LoginButton/>
+        <LogoutButton/>
         <Links to="/register">Register</Links>
+        <Links to="/Create-New-Post">Create New Post</Links>
       </Nav>
     </HeaderStyling>
   );
 };
-const Main = styled.main`
-  padding: 10px;
-  max-width: 700px;
-  margin: 0 auto;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-`;
 
 const HeaderStyling = styled.main`
   display: flex;
@@ -32,6 +30,13 @@ const Links = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
+
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  font-size: 2rem;
+`;
+
 const BlogName = styled(Link)`
   text-decoration: none;
   color: inherit;

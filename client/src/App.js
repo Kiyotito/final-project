@@ -4,15 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import Profile from "./pages/Profile";
+import CreateNewPost from "./pages/CreateNewPost";
 
 function App() {
-  useEffect(() => {
-    fetch("/test")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
 
   return (
     
@@ -22,6 +16,7 @@ function App() {
           <Route path ='/login'element ={<LoginPage/>}/>
           <Route path ='/register'element ={<div>Register Page</div>}/>
           <Route path ='/Profile'element ={<Profile/>}/>
+          <Route path ='/Create-New-Post'element ={<CreateNewPost/>}/>
         </Route>
       </Routes>
     
