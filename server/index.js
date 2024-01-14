@@ -4,6 +4,7 @@ const app = express();
 const port = 4000;
 const morgan = require("morgan");
 const { getPosts } = require('./handlers/getAllPosts');
+const { getAPost } = require('./handlers/getAPost');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
@@ -13,6 +14,7 @@ app.get('/test', (req, res) => {
 })
 app.post('/create-post',createPost)
 app.get('/get-all-posts', getPosts)
+app.get('/get-a-post/:_id', getAPost)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
