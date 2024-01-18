@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Layout from "./Layout";
 import { Routes, Route } from "react-router-dom";
 import IndexPage from "./pages/IndexPage";
@@ -6,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import Profile from "./pages/Profile";
 import CreateNewPost from "./pages/CreateNewPost";
 import IndividualPost from "./pages/IndividualPost";
+
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
           <Route path ='/Profile'element ={<Profile/>}/>
           <Route path ='/Create-New-Post'element ={<CreateNewPost/>}/>
           <Route path="/post/:id" element={<IndividualPost/>} />
+          <Route path="/profile" element={<Profile/>} />
         </Route>
       </Routes>
     

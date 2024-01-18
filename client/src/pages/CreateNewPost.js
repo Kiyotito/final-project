@@ -27,9 +27,9 @@ const formats = [
 const CreateNewPost = () => {
     const [title,setTitle]= useState('');
     const [summary,setSummary]= useState('');
-    const [content,setContent]= useState('');
     const [imgURL,setImgURL]= useState('');
     const [formData, setFormData] = useState({});
+    const [content,setContent]= useState('');
 
 const handleChange = (id,value)=> {
     setFormData({
@@ -37,15 +37,22 @@ const handleChange = (id,value)=> {
         [id]:value,
     })
     console.log(formData);
+ 
+}
+
+
+const handleChangeContent = (newalue)=> {
+    setFormData({
+        ...formData,
+        "text":newalue,
+    })
+    console.log(formData);
+ 
 }
     const createNewPost = async (ev) =>{
-       /* const data = new FormData();
-        data.set('title', title);
-        data.set('summary', summary);
-        data.set('content', content);
-        data.set('imgURL', imgURL);
-        console.log(data);*/
-        ev.preventDefault();
+        
+        await ev.preventDefault();
+
         const response = await fetch('/create-post',{
             method: 'POST',
             headers:{
@@ -55,6 +62,8 @@ const handleChange = (id,value)=> {
             body: JSON.stringify({content:formData}),
         })
     }
+
+
     return(
         <Form onSubmit={createNewPost}>
             <label htmlFor="Title">Title</label>
@@ -79,7 +88,7 @@ const handleChange = (id,value)=> {
             id= "content"
             name="postContent" 
             //value ={content} 
-            onChange={newValue=>handleChange(content, newValue)}
+            onChange={newValue=>handleChangeContent(newValue)}
             modules={modules} formats={formats}/>
             <Button>Create Post</Button>
         </Form>
