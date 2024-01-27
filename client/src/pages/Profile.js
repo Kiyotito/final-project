@@ -20,7 +20,8 @@ const Profile = () => {
   console.log(user.id);
 
   useEffect(()=>{
-    fetch(`/get-profile/${_id}`)
+    if (_id){
+    fetch(`/get-a-profile/${_id}`)
        .then((response) => {
          if (response.ok) {
            return response.json();
@@ -33,10 +34,11 @@ const Profile = () => {
        })
        .catch((error) => {
          console.error("Invalid Data Received:", error);
-       });
-   },[])
+       });  
+    }
+   },[_id])
 
-
+  
    const handleChange = (id,value)=> {
     setFormData({
         ...formData,
@@ -46,13 +48,13 @@ const Profile = () => {
 
   const createNewProfile = async (ev) =>{
      ev.preventDefault();
-     const response = await fetch('/create-profile',{
-         method: 'POST',
+     const response = await fetch(`/modify-profile/${_id}`,{
+         method: 'PATCH',
          headers:{
              Accept: "application/json",
              "Content-Type": "application/json",
          },
-         body: JSON.stringify({content:formData}),
+         body: JSON.stringify({profileInfo:formData}),
      })
  }
   
@@ -61,11 +63,14 @@ const Profile = () => {
   }
 
   return (
-    isAuthenticated && (
+    profile && (
       <ProfileInfo>
         <ProfileHeader>
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+        <p>{profile.profileInfo.phoneNumber?<>{profile.profileInfo.phoneNumber}</>:<></>}</p>
+        <p>{profile.profileInfo.username?<>{profile.profileInfo.username}</>:<></>}</p>
+        <p>{profile.profileInfo.address?<>{profile.profileInfo.address}</>:<></>}</p>
         </ProfileHeader>
         
         {/* Have 2 Forms, one if the user doesn't exist on MongoDB, and another for if the user does exist*/}
