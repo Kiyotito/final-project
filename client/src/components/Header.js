@@ -2,18 +2,33 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+  const {user} =useContext(UserContext);
+  const {isAuthenticated} = useAuth0();
+  console.log(user);
+  
   return (
     <HeaderStyling>
       <HomeLink to="/">
         Ratios
       </HomeLink>
       <Nav>
-        <LoginButton/>
+      {
+        isAuthenticated ? 
+        <>
         <LogoutButton/>
         <Links to="/register">Register</Links>
         <Links to="/Create-New-Post">Create New Post</Links>
+        </>
+        :
+        <LoginButton/>
+        }
+        
+        
       </Nav>
     </HeaderStyling>
   );

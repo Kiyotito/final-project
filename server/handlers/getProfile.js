@@ -22,7 +22,7 @@ const getAProfile = async (req, res) => {
           data: result,
           message: "User Found Successfully",
         })
-      : //If there isn't a profile associated with that _id then a message saying that no cart was found
+//If there isn't a profile associated with that _id then a message saying that no cart was found
         res.status(404).json({ status: 404, data: null, message: "Not Found" });
     //Catches an error and logs it if something wrong happens
   } catch (err) {

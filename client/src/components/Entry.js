@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Entry = ({title,summary,imgURL,_id}) => {
-
+const Entry = ({title,summary,imgURL,_id,text}) => {
     return(
         <Post>
-        <Links to ={`/post/${_id}`}><Img src="http://tinyurl.com/mpevvp49" alt=""/></Links>
+        <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links>
         <Text>
         <Links to ={`/post/${_id}`}><Title>{title}</Title></Links>
         <Info>
         <Author>Koichi Sato</Author>
         <Time>January 11th 2023</Time>
         </Info>
-        <p>{summary}</p>
+        <div dangerouslySetInnerHTML={{__html: text}}/>
         </Text>
         </Post>  
     )
@@ -38,7 +37,8 @@ const Author = styled.a`
 const Time = styled.p`
  margin: 0;
 `;
-const Info = styled.p`
+
+const Info = styled.div`
  color: lightgray;
  margin-bottom: 10px;
  font-size: .75rem;
