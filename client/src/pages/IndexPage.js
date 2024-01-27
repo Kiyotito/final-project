@@ -1,10 +1,13 @@
 import AboutBanner from "../components/AboutBanner";
 import Entry from "../components/Entry";
 import { useState, useEffect } from "react"
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const IndexPage = () => {
     
     const [ allPosts, setAllPosts] = useState([])
+    const {user} =useContext(UserContext);
 
     useEffect(()=>{ 
 
@@ -31,20 +34,19 @@ const IndexPage = () => {
         }
         getAllPosts()
     }, []);
-
-    console.log(allPosts);
+    console.log({user});
     return(
         <div>
         {
          allPosts.length >= 1 ?
             allPosts.map((item)=>{
-            console.log(item.content.imgURL)
                 return (
                 <Entry 
                 title = {item.content.title}
                 summary = {item.content.summary}
                 imgURL = {item.content.imgURL}
                 _id = {item._id}
+                text = {item.content.text}
                 />   
                 );
             })
