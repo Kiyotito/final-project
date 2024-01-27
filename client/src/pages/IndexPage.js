@@ -34,7 +34,7 @@ const IndexPage = () => {
         }
         getAllPosts()
     }, []);
-    console.log({user});
+
     return(
         <div>
         {

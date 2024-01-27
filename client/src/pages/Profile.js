@@ -17,37 +17,32 @@ const Profile = () => {
   const {isAuthenticated, isLoading} = useAuth0();
   const _id = user.id
 
-  console.log(_id)
+  console.log(user.id);
 
-  /*
   useEffect(()=>{
-    fetch(`/get-profile/_id`)
+    fetch(`/get-profile/${_id}`)
        .then((response) => {
          if (response.ok) {
            return response.json();
          } else {
-           throw new Error("Could not retrieve post!");
+           throw new Error("Could not retrieve profile!");
          }
        })
        .then((data) => {
         setProfile(data.data);
-        //setProfileObtained(true);
        })
        .catch((error) => {
          console.error("Invalid Data Received:", error);
        });
    },[])
-*/
+
 
    const handleChange = (id,value)=> {
     setFormData({
         ...formData,
         [id]:value,
     })
-    console.log(formData);
 }
-
-console.log(isAuthenticated)
 
   const createNewProfile = async (ev) =>{
      ev.preventDefault();

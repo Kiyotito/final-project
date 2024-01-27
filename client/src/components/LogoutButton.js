@@ -17,9 +17,6 @@ const LogoutButton = () => {
     }
   }, [UserFromAuth0]);
   
-  console.log(UserFromAuth0);
-  console.log(user);
-  
   return (
     <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
