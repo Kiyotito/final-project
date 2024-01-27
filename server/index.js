@@ -7,6 +7,8 @@ const { getPosts } = require('./handlers/getAllPosts');
 const { getAPost } = require('./handlers/getAPost');
 const { createProfile } = require('./handlers/createProfile');
 const {CreateOrGetAProfile} = require('./handlers/CreateOrGetAProfile');
+const { getAProfile } = require('./handlers/getAProfile');
+const { modifyProfile } = require('./handlers/updateProfile');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
@@ -20,6 +22,8 @@ app.post('/create-profile', createProfile)
 app.get('/get-all-posts', getPosts)
 app.get('/get-a-post/:_id', getAPost)
 app.post('/get-profile/:_id', CreateOrGetAProfile)
+app.get('/get-a-profile/:_id', getAProfile)
+app.patch("/modify-profile/:_id", modifyProfile)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
