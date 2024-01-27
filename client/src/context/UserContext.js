@@ -19,10 +19,24 @@ const UserProvider = ({ children }) => {
     // 1. If the user already exists, send back the user project from the database.
     // 2. If the user does not exist, create a new user and send back the user object from the database.
 
+    const response = await fetch(`/get-profile/${newUser.sub}`,{
+        method: 'POST',
+        headers:{
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email : newUser.email,
+          name : newUser.name,
+        }),
+    })
+    
+    const data = await response.json()
+    console.log(data);
+
     setUser({
       email: newUser.email,
       name: newUser.name,
-      picture: newUser.picture,
       id : newUser.sub
     });
   };

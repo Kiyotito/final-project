@@ -19,8 +19,6 @@ function App() {
       createUserAndRecieveInfo(UserFromAuth0);
     }
   }, [UserFromAuth0]);
-  
-  console.log(UserFromAuth0);
 
   return (
     

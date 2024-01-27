@@ -9,8 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Header = () => {
   const {user} =useContext(UserContext);
   const {isAuthenticated} = useAuth0();
-  console.log(user);
-  
+
   return (
     <HeaderStyling>
       <HomeLink to="/">
@@ -21,7 +20,7 @@ const Header = () => {
         isAuthenticated ? 
         <>
         <LogoutButton/>
-        <Links to="/register">Register</Links>
+        <Links to="/Profile">Profile</Links>
         <Links to="/Create-New-Post">Create New Post</Links>
         </>
         :
