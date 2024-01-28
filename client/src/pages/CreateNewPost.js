@@ -38,7 +38,6 @@ const CreateNewPost = () => {
     const date = new Date()
     const dateString = date.toDateString();
 
-console.log(dateString);
 
 const handleChange = (id,value)=> {
     setFormData({
@@ -51,16 +50,19 @@ const handleTextChange = (text,value)=> {
     setFormData({
         ...formData,
         text:value,
+        author: userName,
+        date: dateString, 
     })
 }
 
     const createNewPost = async (ev) =>{
         ev.preventDefault();
-        setFormData({
+        /*setFormData({
             ...formData,
             author: userName,
             date: dateString, 
-        })
+        })*/
+        console.log(formData);
         const response = await fetch('/create-post',{
             method: 'POST',
             headers:{

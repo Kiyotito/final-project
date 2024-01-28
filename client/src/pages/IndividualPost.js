@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react"
 import styled from "styled-components";
+import { DiscussionEmbed } from 'disqus-react';
 
 
 const IndividualPost = () => {
@@ -37,7 +38,18 @@ useEffect(()=>{
     <div>{post.content.title}</div>
     <div>{post.content.summary}</div>
     <div dangerouslySetInnerHTML={{__html: post.content.text}}/>
-    <div>{}</div>
+    <DiscussionEmbed
+    shortname='example'
+    config={
+        {
+            url: `http://localhost:3000/post/${id}`,
+            identifier: `${id}`,
+            title: `${post.content.title}`,
+            language: 'eng' //e.g. for Traditional Chinese (Taiwan)	
+        }
+    }
+/>
+    
     </>
     
     :
