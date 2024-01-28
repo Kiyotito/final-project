@@ -6,10 +6,10 @@ const Entry = ({title,summary,imgURL,_id,author,date}) => {
   console.log(date)
     return(
         <Post>
-        <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links>
+        <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links>  
         <Text>
         <Links to ={`/post/${_id}`}><Title>{title}</Title></Links>
-        <div>{summary}</div>
+        <Summary>{summary}</Summary>
         <Info>
         <Author>{author}</Author>
         <Time>{date}</Time>
@@ -21,15 +21,22 @@ const Entry = ({title,summary,imgURL,_id,author,date}) => {
 }
 
 const Img = styled.img`
-  max-width: 100%;
-  height: auto;
+  max-width: auto;
+  height: 250px;
+  border-radius: 25px;
 `;
 
 const Post = styled.div`
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 20px;
-  margin-bottom:30px;
+  display: flex;
+  gap: 20 px;
+  height: 150 px;
+  background-color: #D46634;
+  border-radius: 25px;
+  padding: 25px;
+  &:hover{
+  background-color: #A6481E; 
+  border: #D46634 5px solid ;
+  }
 `;
 
 const Author = styled.a`
@@ -50,11 +57,19 @@ const Info = styled.div`
 `;
 
 const Text = styled.div`
- margin: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-left: 10px;
 `;
 
 const Title = styled.h2`
  font-size: 2rem;
+ margin-bottom: 10px;
+`;
+
+const Summary = styled.p`
+ font-size: 1rem;
  margin-bottom: 10px;
 `;
 

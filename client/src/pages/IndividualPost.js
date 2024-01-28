@@ -34,10 +34,15 @@ useEffect(()=>{
   {
     post ?
     <>
+    <PostPage>
     <Img src={post.content.imgURL} alt=""/>
-    <div>{post.content.title}</div>
-    <div>{post.content.summary}</div>
+    <ContentSection>
+    <Title>{post.content.title}</Title>
+    <Summary>{post.content.summary}</Summary>
     <div dangerouslySetInnerHTML={{__html: post.content.text}}/>
+    </ContentSection>
+    
+    </PostPage>
     <DiscussionEmbed
     shortname='example'
     config={
@@ -48,10 +53,8 @@ useEffect(()=>{
             language: 'eng' //e.g. for Traditional Chinese (Taiwan)	
         }
     }
-/>
-    
+    />
     </>
-    
     :
     <div>Loading</div>
   }
@@ -62,5 +65,33 @@ useEffect(()=>{
 const Img = styled.img`
 max-width: 250px;
 height: auto;
+border-radius: 25px;
+margin: 20px;
 `
+
+const PostPage = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #A6481E;
+color: #F0EFEF;
+border-radius: 25px;
+margin: 25px 25px;
+padding: 25px;
+`
+const ContentSection = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+const Title = styled.h1`
+ font-size: 2rem;
+ margin-bottom: 10px;
+`;
+
+const Summary = styled.h2`
+ font-size: 1rem;
+ margin-bottom: 10px;
+`;
 export default IndividualPost;
