@@ -32,7 +32,6 @@ const UserProvider = ({ children }) => {
     })
     
     const data = await response.json()
-    console.log(data);
 
     setUser({
       email: newUser.email,

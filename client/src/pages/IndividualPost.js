@@ -7,6 +7,7 @@ import styled from "styled-components";
 const IndividualPost = () => {
   const [post, setPost] = useState();
   const { id } = useParams();
+  const [comments, setComments] = useState();
   //const [description, setDescription] = useState();
 
 useEffect(()=>{
@@ -26,6 +27,8 @@ useEffect(()=>{
       console.error("Invalid Data Received:", error);
     });
 },[])
+  
+console.log(Object.entries(post.comments));
 
   return ( 
   <div>
@@ -36,6 +39,7 @@ useEffect(()=>{
     <div>{post.content.title}</div>
     <div>{post.content.summary}</div>
     <div dangerouslySetInnerHTML={{__html: post.content.text}}/>
+    <div>{}</div>
     </>
     
     :
