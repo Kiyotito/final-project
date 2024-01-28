@@ -2,7 +2,9 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import styled from "styled-components";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+
 
 
 
@@ -31,13 +33,18 @@ const CreateNewPost = () => {
     const [content,setContent]= useState('');
     const [imgURL,setImgURL]= useState('');
     const [formData, setFormData] = useState({});
+    const {user} =useContext(UserContext);
+    const userName = user.name;
+    const date = new Date()
+    const dateString = date.toDateString();
+
+console.log(dateString);
 
 const handleChange = (id,value)=> {
     setFormData({
         ...formData,
         [id]:value,
     })
-    console.log(formData);
 }
 
 const handleTextChange = (text,value)=> {
@@ -45,11 +52,15 @@ const handleTextChange = (text,value)=> {
         ...formData,
         text:value,
     })
-    console.log(formData);
 }
 
     const createNewPost = async (ev) =>{
         ev.preventDefault();
+        setFormData({
+            ...formData,
+            author: userName,
+            date: dateString, 
+        })
         const response = await fetch('/create-post',{
             method: 'POST',
             headers:{
@@ -60,8 +71,8 @@ const handleTextChange = (text,value)=> {
         })
     }
 
-    const { user, isAuthenticated, isLoading} = useAuth0();
-    console.log(user, isAuthenticated, isLoading);
+   
+
     return(
         <Form onSubmit={createNewPost}>
             <label htmlFor="Title">Title</label>
@@ -85,6 +96,7 @@ const handleTextChange = (text,value)=> {
             <ReactQuill 
             id= "content"
             name="postContent" 
+            //value ={content} 
             onChange={newValue=>handleTextChange("text", newValue)}
             modules={modules} formats={formats}/>
             <Button>Create Post</Button>

@@ -27,8 +27,6 @@ useEffect(()=>{
       console.error("Invalid Data Received:", error);
     });
 },[])
-  
-console.log(Object.entries(post.comments));
 
   return ( 
   <div>

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Entry = ({title,summary,imgURL,_id,text}) => {
+const Entry = ({title,summary,imgURL,_id,author,date}) => {
+
+  console.log(date)
     return(
         <Post>
         <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links>
@@ -9,8 +11,8 @@ const Entry = ({title,summary,imgURL,_id,text}) => {
         <Links to ={`/post/${_id}`}><Title>{title}</Title></Links>
         <div>{summary}</div>
         <Info>
-        <Author>Koichi Sato</Author>
-        <Time>January 11th 2023</Time>
+        <Author>{author}</Author>
+        <Time>{date}</Time>
         </Info>
         </Text>
         </Post>  

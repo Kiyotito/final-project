@@ -47,6 +47,8 @@ const IndexPage = () => {
                 imgURL = {item.content.imgURL}
                 _id = {item._id}
                 text = {item.content.text}
+                author = {item.content.author}
+                date = {item.content.date}
                 />   
                 );
             })
