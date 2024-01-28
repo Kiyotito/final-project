@@ -7,11 +7,11 @@ const Entry = ({title,summary,imgURL,_id,text}) => {
         <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links>
         <Text>
         <Links to ={`/post/${_id}`}><Title>{title}</Title></Links>
+        <div>{summary}</div>
         <Info>
         <Author>Koichi Sato</Author>
         <Time>January 11th 2023</Time>
         </Info>
-        <div dangerouslySetInnerHTML={{__html: text}}/>
         </Text>
         </Post>  
     )

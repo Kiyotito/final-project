@@ -17,8 +17,6 @@ const Profile = () => {
   const {isAuthenticated, isLoading} = useAuth0();
   const _id = user.id
 
-  console.log(user.id);
-
   useEffect(()=>{
     if (_id){
     fetch(`/get-a-profile/${_id}`)
