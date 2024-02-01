@@ -25,19 +25,21 @@ const Entry = ({title,summary,imgURL,_id,author,date}) => {
 
 
 const Img = styled.img`
- max-width: auto;
- height: 250px;
+ max-width: 100%;
+ max-height: 100%;
  border-radius: 25px;
 `;
 
 
 const Post = styled.div`
- display: flex;
+ display: grid;
+ grid-template-columns: 50% 50%;
  gap: 20 px;
  height: 150 px;
  background-color: #D46634;
  border-radius: 25px;
  padding: 25px;
+ margin-top: 20px;
  &:hover{
  background-color: #A6481E;
  border: #D46634 5px solid ;
@@ -68,7 +70,7 @@ const Text = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-margin-left: 10px;
+margin-left: 50px;
 `;
 
 
