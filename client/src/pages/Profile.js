@@ -75,27 +75,27 @@ const Profile = () => {
         <ProfileForm onSubmit={createNewProfile}>
         
         <label htmlFor="username">Username</label>
-        <input type="text"
+        <TextInput type="text"
         id="username"
         name="profileContent"
         onChange={ev=>handleChange(ev.target.id, ev.target.value)}
         />
         
         <label htmlFor="phoneNumber">Phone Number</label>
-        <input type="text"
+        <TextInput type="text"
         id="phoneNumber"
         name="profileContent"
         onChange={ev=>handleChange(ev.target.id, ev.target.value)}
         />
 
         <label htmlFor="address">Address</label>
-        <input type="text"
+        <TextInput type="text"
         id="address"
         name="profileContent"
         onChange={ev=>handleChange(ev.target.id, ev.target.value)}
         />
         
-        <button>Create Profile</button>
+        <Button>Create Profile</Button>
         </ProfileForm>
       </ProfileInfo>
     )
@@ -111,6 +111,16 @@ flex-direction: column;
 gap: 10px;
 align-items: center;
 `
+const TextInput = styled.input`
+border-radius: 10px;
+padding: 5px 50px;
+margin: 10px;
+text-align: center;
+&:focus {
+outline: 3px solid black;
+}
+`
+
 
 const ProfileForm = styled.form`
 display: flex;
@@ -119,12 +129,33 @@ gap: 10px;
 align-items: center;
 `
 
+
 const ProfileHeader = styled.div`
 background-color: lightgray;
-padding: 20px 20px;
+padding: 50px;
 display: flex;
 flex-direction: column;
 align-items: center;
 gap: 10px;
 border-radius: 25px;
+margin-bottom: 25px;
+border: 5px solid #F9A873 ;
+background-color: #F9B183;
+`
+const Button =styled.button`
+border-radius: 10px;
+padding: 10px 20px;
+text-decoration: none;
+border: none;
+background-color: #F9A873;
+font-weight: 900;
+margin: 20pxS;
+&:hover{
+background-color: #F67C2D;
+}
+`
+const Instruction = styled.div`
+margin: 25px;
+font-weight: 900;
+font-size: 1rem;
 `
