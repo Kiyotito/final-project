@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 
 const Profile = () => {
@@ -16,6 +17,7 @@ const Profile = () => {
   const {user} =useContext(UserContext);
   const {isAuthenticated, isLoading} = useAuth0();
   const _id = user.id
+  const navigate = useNavigate();
 
   useEffect(()=>{
     if (_id){
@@ -54,6 +56,7 @@ const Profile = () => {
          },
          body: JSON.stringify({profileInfo:formData}),
      })
+     navigate(`/`)
  }
   
   if (isLoading) {
