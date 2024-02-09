@@ -25,10 +25,9 @@ return(
      commentList ?
         comment.map((comment)=>{
             return (
-            <div>
-                <div>{comment[1].author}</div>
-                <div>{comment[1].comment}</div>
-            </div>
+            <Comment>
+                <div>{comment[1].author}:</div><div>{comment[1].comment}</div>
+            </Comment>
             );
         })
      :
@@ -40,11 +39,15 @@ return(
 };
 
 const CommentBox = styled.div`
-width: 50vw;
+width: auto;
 border-radius: 25px;
 padding: 50px;
 background-color: #FBF2ED;
 color: black;
+`
+const Comment = styled.div`
+display: flex;
+gap: 10px;
 `
 export default CommentSection;
 
