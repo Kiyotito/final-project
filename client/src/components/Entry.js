@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 const Entry = ({title,summary,imgURL,_id,author,date}) => {
 
-
- console.log(date)
    return(
        <Post>
        <Links to ={`/post/${_id}`}><Img src={imgURL} alt=""/></Links> 
@@ -28,6 +26,15 @@ const Img = styled.img`
  max-width: 100%;
  max-height: 100%;
  border-radius: 25px;
+ @media (max-width: 750px){
+max-width: 50%;
+ max-height: 50%;
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 `;
 
 
@@ -44,6 +51,12 @@ const Post = styled.div`
  background-color: #A6481E;
  border: #D46634 5px solid ;
  }
+ @media (max-width: 750px){
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 `;
 
 
@@ -89,5 +102,8 @@ margin-bottom: 10px;
 const Links = styled(Link)`
 text-decoration: none;
 color: inherit;
+@media (max-width: 750px){
+margin-top: 25px;
+}
 `
 export default Entry;
