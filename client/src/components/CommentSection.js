@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { useState } from "react"
 import { useEffect } from "react";
 
+
+
 const CommentSection = ({commentList}) => {
 
 const [comment, setComment] = useState([]);
 const [commentBoolean, setCommentBoolean] = useState(false)
 const [post, setPost] = useState();
+const { v4: uuidv4 } = require("uuid");
 
 useEffect(()=>{
     if (commentList){
@@ -15,9 +18,9 @@ useEffect(()=>{
 }
     },[])
 
+//const randomKey = Math.floor(Math.random() * 10000)
 
 
-console.log(comment);
 return(
     
     <CommentBox>
@@ -25,7 +28,7 @@ return(
      commentList ?
         comment.map((comment)=>{
             return (
-            <Comment>
+            <Comment key = {uuidv4()}>
                 <div>{comment[1].author}:</div><div>{comment[1].comment}</div>
             </Comment>
             );

@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { DiscussionEmbed } from 'disqus-react';
 import { useNavigate } from "react-router-dom";
 import CommentSection from "../components/CommentSection";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
+import DeleteButton from "../components/DeleteButton";
 
 /*<DiscussionEmbed
    shortname='example'
@@ -20,6 +23,7 @@ import CommentSection from "../components/CommentSection";
 
 
 const IndividualPost = () => {
+const {user} =useContext(UserContext);
 const [post, setPost] = useState();
 const { id } = useParams();
 const [formData, setFormData] = useState({});
@@ -76,14 +80,6 @@ const createNewPost = async (ev) =>{
   
 }
 
-/*const arrayOfComments = () =>{
-if (listOfComments){
-  setComment(Object.entries(listOfComments))
-}
-}
-arrayOfComments();
-*/
-console.log(id);
  return (
  <div>
  {
@@ -107,11 +103,13 @@ console.log(id);
    <Button>Send</Button>
    </Form>
   <CommentSection commentList = {post?.comment}/>
+  <DeleteButton post={post} _id={id}/>
   </PostPage>
    </>
    :
    <div>Loading</div>
  }
+ 
  </div>
  )
 };
