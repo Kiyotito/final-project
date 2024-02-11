@@ -47,7 +47,7 @@ const Profile = () => {
 }
 
   const createNewProfile = async (ev) =>{
-     ev.preventDefault();
+    
      const response = await fetch(`/modify-profile/${_id}`,{
          method: 'PATCH',
          headers:{
@@ -74,9 +74,9 @@ const Profile = () => {
         <p>{profile.profileInfo.address?<>{profile.profileInfo.address}</>:<></>}</p>
         </ProfileHeader>
         
-        {/* Have 2 Forms, one if the user doesn't exist on MongoDB, and another for if the user does exist*/}
-        <ProfileForm onSubmit={createNewProfile}>
         
+        <ProfileForm onSubmit={createNewProfile}>
+        <div>If information above is incorrect, please change using the form below!</div>
         <label htmlFor="username">Username</label>
         <TextInput type="text"
         id="username"
@@ -98,7 +98,7 @@ const Profile = () => {
         onChange={ev=>handleChange(ev.target.id, ev.target.value)}
         />
         
-        <Button>Create Profile</Button>
+        <Button>Update Profile</Button>
         </ProfileForm>
       </ProfileInfo>
     )

@@ -21,8 +21,9 @@ const Header = () => {
      {
        isAuthenticated ?
        <>
+       
+       <Links to="/Profile">{user.name}</Links>
        <LogoutButton/>
-       <Links to="/Profile">Profile</Links>
        <Links to="/Create-New-Post">Create New Post</Links>
        </>
        :

@@ -61,7 +61,6 @@ const handleTextChange = (text,value)=> {
        text:value,
        author: userName,
        date: dateString,
-       comment: "",
    })
 }
 
