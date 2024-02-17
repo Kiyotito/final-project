@@ -10,10 +10,9 @@ const createPost = async (req, res) => {
     await client.connect();
     const db = client.db("final-project");
     const addPost = db.collection("posts");
-
+    console.log('changing to be able to commit')
     //Creates a unique ID
     const postId = uuidv4();
-    console.log(req.body);
     //Compiles all the information that is going to be pushed in the database
     const postData = { ...req.body, _id: postId };
     //add order to MongoDB

@@ -38,15 +38,19 @@ const IndexPage = () => {
     return(
         <div>
         {
+        
          allPosts.length >= 1 ?
             allPosts.map((item)=>{
                 return (
-                <Entry 
+                <Entry
+                key = {item._id}
                 title = {item.content.title}
                 summary = {item.content.summary}
                 imgURL = {item.content.imgURL}
                 _id = {item._id}
                 text = {item.content.text}
+                author = {item.content.author}
+                date = {item.content.date}
                 />   
                 );
             })
