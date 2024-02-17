@@ -69,9 +69,9 @@ const Profile = () => {
         <ProfileHeader>
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-        <p>{profile.profileInfo.phoneNumber?<>{profile.profileInfo.phoneNumber}</>:<></>}</p>
-        <p>{profile.profileInfo.username?<>{profile.profileInfo.username}</>:<></>}</p>
-        <p>{profile.profileInfo.address?<>{profile.profileInfo.address}</>:<></>}</p>
+        <p>Phone Number: {profile.profileInfo.phoneNumber?<>{profile.profileInfo.phoneNumber}</>:<></>}</p>
+        <p>Username: {profile.profileInfo.username?<>{profile.profileInfo.username}</>:<></>}</p>
+        <p>Address: {profile.profileInfo.address?<>{profile.profileInfo.address}</>:<></>}</p>
         </ProfileHeader>
         
         
